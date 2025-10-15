@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go Shoot - Prototype Lobby</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+        font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
+          'Helvetica Neue', sans-serif;
+        background: radial-gradient(circle at top, #111827, #020617 60%);
+        color: #f8fafc;
+      }
+      body {
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .card {
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: 16px;
+        padding: 2rem;
+        max-width: 720px;
+        box-shadow: 0 24px 80px rgba(30, 64, 175, 0.35);
+        backdrop-filter: blur(20px);
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 2.5rem;
+        letter-spacing: 0.08em;
+      }
+      p {
+        line-height: 1.8;
+      }
+      code {
+        background: rgba(148, 163, 184, 0.15);
+        padding: 0.2rem 0.4rem;
+        border-radius: 6px;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      }
+      .cta {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      a.button {
+        background: linear-gradient(120deg, #3b82f6, #8b5cf6);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      a.button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.45);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Go Shoot</h1>
+      <p>
+        このプロトタイプは、P2P ブラウザシューティングゲーム「Go Shoot」の
+        バックエンド API とロビー WebSocket を Go のみで構築するための土台です。
+        <br />
+        <br />
+        API は <code>cmd/server</code> から起動でき、ゲームロビーの作成や参加、簡易的な
+        チャットブリッジを提供しています。
+      </p>
+      <section>
+        <h2>クイックスタート</h2>
+        <ol>
+          <li><code>go run ./cmd/server</code> を実行</li>
+          <li>別ターミナルで <code>curl -X POST localhost:8080/api/v1/rooms</code></li>
+          <li>
+            <code>ws://localhost:8080/ws/lobby/&lt;roomID&gt;</code> に接続してチャット
+            メッセージを送信
+          </li>
+        </ol>
+      </section>
+      <div class="cta">
+        <a class="button" href="/docs/development_plan.md" target="_blank"
+          >開発計画書を読む</a
+        >
+        <a
+          class="button"
+          href="https://github.com/" target="_blank" rel="noreferrer"
+          >GitHub</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

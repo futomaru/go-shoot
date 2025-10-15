@@ -1,0 +1,7 @@
+# Build artifacts
+server
+/dist
+/bin
+
+# Go build cache
+*.test
